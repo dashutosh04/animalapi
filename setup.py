@@ -8,18 +8,18 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
 VERSION = "0.0.1"
-DESCRIPTION = "This is official miyu-animal-api "
+DESCRIPTION = "This is official animalapi pypi package"
 LONG_DESCRIPTION = ""
 
 setup(
-    name="miyu-animal-api",
+    name="animalapi",
     version=VERSION,
     author="DARKPOISON",
     author_email="dashutosh06122004@gmail.com",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
-    packages=find_packages(),
+    packages= ["animalapi"],
     install_requires=["requests"],
     keywords=[],
     classifiers=[
