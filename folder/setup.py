@@ -22,7 +22,6 @@ setup(
     packages= ["animalapi"],
     install_requires=["requests"],
     keywords=[],
-    download_url = "https://github.com/DARKPOISON-yt/animalapi/archive/refs/tags/0.0.1.tar.gz",
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
