@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 DESCRIPTION = "This is the package for api scapper that provides animal images and their facts."
 LONG_DESCRIPTION = ""
 
@@ -22,7 +22,7 @@ setup(
     packages= ["animalapi"],
     install_requires=["requests"],
     keywords=[],
-    download_url = "https://github.com/DARKPOISON-yt/animalapi/archive/refs/tags/0.0.1.tar.gz",
+    download_url = "https://github.com/DARKPOISON-yt/animalapi/archive/refs/tags/0.0.3.tar.gz",
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",

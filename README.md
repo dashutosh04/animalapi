@@ -19,10 +19,12 @@ fact = data["fact"]
 
 ```Python
 import animalapi as a
-data = a.dog()
+data = a.animal_data("dog")
 img = data["image"]
 fact = data["fact"]
+print(img)
+print(fact)
 
 ```
 
-> Currently this package supports these animals:- ["dog","cat","panda","fox","kangaroo","raccoon","birb","red_panda","koala"]
+> Currently this package supports these animals:- ["dog","cat","panda","fox","kangaroo","raccoon","bird","red_panda","koala"]

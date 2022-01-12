@@ -17,6 +17,8 @@ aliases = {
 
 
 def animal_data(animalname):
+    if animalname not in aliases:
+        raise ValueError("That animal name is not available. Valid animals are: -\"dog","cat","panda","fox","kangaroo","raccoon","bird","red_panda","koala\"")
     res = requests.get(base_url + f"animal/{aliases[animalname]}")
     if res.status_code != 200:
         return "Invalid response from API"

@@ -1,3 +1,3 @@
 import animalapi as a
 
-print(a.rand_animals())
+print(a.animal_data("dogs"))
