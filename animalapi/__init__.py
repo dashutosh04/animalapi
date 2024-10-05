@@ -1,45 +1,39 @@
 import random
 import requests
 
+BASE_URL = "https://some-random-api.ml/"
+VALID_ANIMALS = [
+    "dog",
+    "cat",
+    "bird",
+    "koala",
+]
 
-base_url = "https://some-random-api.ml/"
-aliases = {
-    "dog": "dog",
-    "cat": "cat",
-    "panda": "panda",
-    "fox": "fox",
-    "kangaroo": "kangaroo",
-    "raccoon": "raccoon",
-    "bird": "birb",
-    "red_panda": "red_panda",
-    "koala": "koala",
-}
+class InvalidAnimalError(ValueError):
+    """Raised when an invalid animal name is provided."""
+
+    pass
 
 
-def animal_data(animalname):
-    if animalname not in aliases:
-        raise ValueError("That animal name is not available. Valid animals are: -\"dog","cat","panda","fox","kangaroo","raccoon","bird","red_panda","koala\"")
-    res = requests.get(base_url + f"animal/{aliases[animalname]}")
+def animal_data(animal_name):
+    if animal_name not in VALID_ANIMALS:
+        raise InvalidAnimalError(
+            f"Invalid animal name: {animal_name}. Valid animals are: {', '.join(VALID_ANIMALS)}"
+        )
+
+    res = requests.get(BASE_URL + f"animal/{animal_name}")
+
     if res.status_code != 200:
-        return "Invalid response from API"
-    return res.json()
+        raise requests.exceptions.RequestException(
+            f"API request failed with status code {res.status_code}: {res.text}"
+        )
+
+    try:
+        return res.json()
+    except ValueError:
+        raise ValueError("Invalid JSON response from API")
 
 
 def rand_animals():
-    rand_data = random.choice(
-        [
-            "dog",
-            "cat",
-            "panda",
-            "fox",
-            "kangaroo",
-            "raccoon",
-            "birb",
-            "red_panda",
-            "koala",
-        ]
-    )
-    res = requests.get(base_url + f"animal/{rand_data}")
-    if res.status_code != 200:
-        return "Invalid response from API"
-    return res.json()
+    random_animal = random.choice(VALID_ANIMALS)
+    return animal_data(random_animal)
