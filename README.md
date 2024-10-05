@@ -38,8 +38,8 @@ data = a.rand_animals()
 img = data["image"]
 fact = data["fact"]
 
-print(img)  # Output: [invalid URL removed]
-print(fact)  # Output: Interesting fact about the animal
+print(img) 
+print(fact) 
 ```
 
 > Get data for a specific animal
